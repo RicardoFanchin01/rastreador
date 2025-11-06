@@ -4,14 +4,22 @@ const express = require('express');
 const helmet = require('helmet');
 const morgan = require('morgan');
 const Joi = require('joi');
+const cors = require('cors');  // ✅ Import CORS
 const db = require('./db');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Segurança e logs
 app.use(helmet());
 app.use(express.json());
 if (process.env.NODE_ENV !== 'production') app.use(morgan('dev'));
+
+// ✅ Configuração CORS
+app.use(cors({
+  origin: process.env.FRONTEND_ORIGIN || 'http://localhost:8081', // pode ser '*' para liberar qualquer origem
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+}));
 
 // validação com Joi
 const locationSchema = Joi.object({
