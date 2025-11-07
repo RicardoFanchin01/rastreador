@@ -17,7 +17,7 @@ if (process.env.NODE_ENV !== 'production') app.use(morgan('dev'));
 
 // ✅ Configuração CORS
 app.use(cors({
-  origin: ['https://gps-w7s3.onrender.com'], // frontend autorizado
+  origin: ['https://gps-w7s3.onrender.com','https://mapa-6wu5.onrender.com'], // frontend autorizado
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
