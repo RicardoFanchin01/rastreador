@@ -17,7 +17,7 @@ if (process.env.NODE_ENV !== 'production') app.use(morgan('dev'));
 
 // ✅ Configuração CORS
 app.use(cors({
-  origin: process.env.FRONTEND_ORIGIN || 'https://rastreador-mi19.onrender.com', // pode ser '*' para liberar qualquer origem
+  origin: process.env.FRONTEND_ORIGIN || 'https://gps-w7s3.onrender.com/', // pode ser '*' para liberar qualquer origem
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
 }));
 
